@@ -8,10 +8,7 @@ import Receipt from "./pages/Receipt/Receipt";
 function App() {
 
     return (
-        <div className="container">
-            <Header active={1} />
-            <SignIn />
-        </div>
+        <Header active={1} />
     )
 }
 
