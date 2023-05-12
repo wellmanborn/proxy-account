@@ -7,8 +7,9 @@ function Receipt() {
 
     const {t} = useTranslation();
 
-    return (
-        <div className="mt-5 pt-5">
+
+
+    return (<div className="mt-5 pt-5">
             <Row className="justify-content-center">
                 <Col md="5">
                     <Card className="center-block">
@@ -24,8 +25,7 @@ function Receipt() {
                     </Card>
                 </Col>
             </Row>
-        </div>
-    );
+        </div>);
 }
 
 export default Receipt;

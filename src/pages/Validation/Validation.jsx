@@ -5,10 +5,19 @@ import {BsShieldLock} from 'react-icons/bs';
 import {useTranslation} from 'react-i18next';
 import useCountdown from "../../components/UseCountdown";
 import {useState} from "react";
+import {useForm} from "react-hook-form";
+import {useNavigate} from "react-router-dom";
+import ValidationValidation from "./ValidationValidation.jsx";
+
 
 function Validation() {
 
     const {t} = useTranslation();
+
+    const {register, handleSubmit, formState: {errors}} = useForm({resolver: ValidationValidation()});
+
+    const navigate = useNavigate();
+
     const [codeSent, setCodeSent] = useState(true);
 
     let [minutes, seconds] = useCountdown(5, codeSent);
@@ -17,6 +26,10 @@ function Validation() {
         setCodeSent(!codeSent);
     }
 
+    let onSubmit = (data) => {
+        navigate('/account', { replace: true });
+        console.log(data)
+    }
 
     return (
         <div className="mt-5 pt-5">
@@ -31,7 +44,7 @@ function Validation() {
                             <Card.Text>
                                 {t("Insert Validation Code")}
                             </Card.Text>
-                            <Form>
+                            <Form onSubmit={handleSubmit(() => onSubmit())}>
                                 <InputGroup className="mb-2">
                                     <Form.Label column sm={3}>
                                         {t("Validation Code")}
@@ -42,11 +55,15 @@ function Validation() {
                                                 <BsShieldLock/>
                                             </InputGroup.Text>
                                             <Form.Control
-                                                type="number"
+                                                {...register("validation_code")}
+                                                isInvalid={errors.validation_code}
                                                 placeholder={t("Validation Code")}
                                                 aria-label={t("Validation Code")}
                                                 aria-describedby="basic-addon1"
                                             />
+                                            <Form.Control.Feedback type="invalid">
+                                                {errors.validation_code && errors.validation_code.message}
+                                            </Form.Control.Feedback>
                                         </InputGroup>
                                     </Col>
                                 </InputGroup>

@@ -1,15 +1,18 @@
-import SignIn from "./pages/SignIn/SignIn";
-import Header from "./layouts/header";
-import Validation from "./pages/Validation/Validation";
-import Accounts from "./pages/Accounts/Accounts";
-import Terms from "./pages/Terms/Terms";
-import Receipt from "./pages/Receipt/Receipt";
+/*import Header from "./layouts/header";
+import routes from "./routes.jsx";
+import {RouterProvider} from "react-router-dom";
 
 function App() {
 
     return (
-        <Header active={1} />
-    )
-}
+        <>
+            <div className="container">
+                <Header active={1} />
+                <RouterProvider router={routes}></RouterProvider>
+            </div>
+        </>
 
-export default App
+    )
+}*/
+
+// export default App

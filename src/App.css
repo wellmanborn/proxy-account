@@ -132,3 +132,8 @@ body{
   background: #5db5b7;
   color: #FFF;
 }
+.bg-light {
+  --bs-bg-opacity: 1;
+  background-color: #FFF !important;
+  padding: 5px;
+}

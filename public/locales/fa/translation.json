@@ -3,7 +3,9 @@
   "National Code": "شماره ملی",
   "Mobile Number": "شماره موبایل",
   "National Code 10 digits": "شماره ملی 10 رقمی",
-  "Mobile Number in 09xx-xxxxxxx format": "شماره موبایل به فرمت: 09xx-xxxxxxxx",
+  "Mobile Number in 09XXXXXXXXX format": "شماره موبایل به فرمت: 09123456789",
+  "Noor Website": "وبسایت موسسه اعتباری نور",
+  "Please Select An Account To Block": "لطفا حسابی را جهت وکالتی نمودن انتخاب نمایید",
   "Sign In": "ورود به سامانه",
   "Captcha Code": "کد امنیتی",
   "Validation Code": "کد احرازهویت",
@@ -14,5 +16,9 @@
   "Select Account": "انتخاب حساب",
   "Select Account to Set Proxy on it": "لطفا حساب خود را برای وکالتی نمودن انتخاب نمایید",
   "Send Validation Code Again": "ارسال مجدد کد تایید",
+  "National Code Must be 10 Digits": "شماره ملی 10 رقمی را وارد نمایید",
+  "Mobile Number Must be 11 Digits": "شماره موبایل 11 رقمی را وارد نمایید",
+  "Captcha Code Must be Valid": "کد امنیتی صحیح نمی باشد",
+  "Mobile Number Format Must be 09XXXXXXXXX": "شماره موبایل به فرمت 09XXXXXXXXX",
   "Insert Validation Code": "مشتری گرامی,کداعتبارسنجی به شماره تلفن همراه 2170***0936 ارسال گردید. در صورتی که به هر دلیل پیامک را دریافت ننمودید لطفا مجددا پس از گذشت 3 دقیقه کد جدیدی را درخواست نمایید."
 }
