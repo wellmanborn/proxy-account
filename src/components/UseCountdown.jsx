@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const useCountdown = (seconds, again) => {
+const useCountdown = (seconds) => {
     const [countDown, setCountDown] = useState(seconds);
 
     useEffect(() => {
@@ -10,9 +10,9 @@ const useCountdown = (seconds, again) => {
             }, 1000);
             return () => clearInterval(interval);
         }
-    }, [countDown, again]);
+    }, [countDown]);
 
-    return getReturnValues(countDown);
+    return [...getReturnValues(countDown), setCountDown];
 };
 
 const getReturnValues = (countDown) => {
