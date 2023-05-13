@@ -11,6 +11,13 @@ function setCookie(cookieName, cookieValue, remember) {
   }
 }
 
+function deleteCookie(cookieName, cookieValue = ""){
+    let now = new Date();
+    let expDay = 1;
+    now.setTime(now.getTime() - expDay * 24 * 60 * 60 * 1000);
+    document.cookie = `${cookieName}=${cookieValue};path=/;expires=${now};httpOnly: true`;
+}
+
 // all cookies is separated from each other with (;) sign and we need to split them and then search between them
 function getCookie(cookieName) {
     let cookiesArray = document.cookie.split(";") ?? [];
@@ -40,4 +47,4 @@ function setTokenInLocalStorage(itemName, itemContent) {
   }
 
 
-  export {getCookie, setCookie, getTokenFromLocalStorage, setTokenInLocalStorage, removeTokenFromLocalStorage}
+  export {getCookie, deleteCookie, setCookie, getTokenFromLocalStorage, setTokenInLocalStorage, removeTokenFromLocalStorage}

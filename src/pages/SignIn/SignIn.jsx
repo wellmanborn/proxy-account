@@ -8,6 +8,8 @@ import Captcha from "../../assets/capcha.jpeg";
 import {useForm} from "react-hook-form";
 import SignInValidation from "./SignInValidation.jsx";
 import {useNavigate} from "react-router-dom";
+import {setCookie,deleteCookie} from "../../utils";
+import {useEffect} from "react";
 
 function SignIn() {
 
@@ -16,9 +18,28 @@ function SignIn() {
     const navigate = useNavigate();
 
     let {register, handleSubmit, formState: {errors}} = useForm({resolver: SignInValidation()});
+
+    useEffect(() => {
+        deleteCookie("token");
+    }, []);
+
+
     let onSubmit = (data) => {
-        navigate('/validation', { replace: true });
-        console.log(data)
+        fetch("http://localhost:8000/api/login",{
+            method: "POST",
+            body: {
+                "national_code": data.national_code,
+                "mobile_number": data.mobile_number,
+            }
+        }).then((response) => response.json())
+            .then(result => {
+                if(result.success) {
+                    setCookie("token", result.token)
+                    navigate('/validation', { replace: true });
+                }else {
+                    console.log("invalid data")
+                }
+            })
     }
 
     return (<div className="mt-5 pt-5">
