@@ -1,18 +1,27 @@
-/*import Header from "./layouts/header";
-import routes from "./routes.jsx";
-import {RouterProvider} from "react-router-dom";
+import Header from "./layouts/header.jsx";
+import {Outlet, useLocation, useNavigate} from "react-router-dom";
+import {useEffect} from "react";
+import Bread from "./layouts/Bread.jsx";
+
 
 function App() {
 
-    return (
-        <>
-            <div className="container">
-                <Header active={1} />
-                <RouterProvider router={routes}></RouterProvider>
-            </div>
-        </>
+    /*let location = useLocation();
+    let navigate = useNavigate();
 
-    )
-}*/
+    useEffect(() => {
+        if (location.pathname !== "/")
+            navigate("/")
+    }, [])*/
 
-// export default App
+    return <div className="container-fluid">
+        <Header active="1"/>
+
+        <div className="container">
+            <Bread />
+            <Outlet/>
+        </div>
+    </div>
+}
+
+export default App;
